@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>应用一览</title>
+</head>
+<style type="text/css">
+div table,td,th{
+   border:1px solid;
+   color:cornflowerblue;
+}
+div th{
+   background-color: #59ff7a;
+}
+div table{
+    border-collapse:collapse;
+}
+</style>
+<body>
+<div>
+    <table>
+        <thead>
+            <tr>
+               <th>序号</th>
+                <th >应用编码</th>
+                <th >应用名称</th>
+                <th >创建时间</th>
+            </tr>
+            <tr  th:each="app:${appList}">
+                <td th:text="${app.id}"></td>
+                <td th:text="${app.appCode}"></td>
+                <td th:text="${app.appName}"></td>
+                <td th:text="${#dates.format(app.createTime,'YYYY-MM-dd')}"></td>
+            </tr>
+        </thead>
+    </table>
+</div>
+</body>
+</html>
